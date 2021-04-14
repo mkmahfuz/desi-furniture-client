@@ -1,0 +1,36 @@
+.login-container{    
+    width: 20rem;
+    margin:3rem auto;
+    text-align:center;
+   
+}
+.google-signIn{
+    text-align: center;
+    /* width:20rem; */
+    /* margin: 3rem auto; */
+    margin-top: 2rem;
+    
+}
+
+.google-signIn button{
+    border: 1px solid rgb(169, 164, 240);
+    border-radius: 1rem;
+    width: 20rem;
+    padding: .5rem;
+    
+}
+
+@media only screen and (max-width:768px){
+    .login-container{    
+        width: 16rem;
+        margin:1rem auto;
+        text-align:center;
+    }
+    .google-signIn button{
+        border: 1px solid rgb(169, 164, 240);
+        border-radius: 1rem;
+        width: 15rem;
+        padding: .5rem;
+        
+    }
+}
