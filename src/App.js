@@ -9,9 +9,9 @@ import Admin from "./components/Admin/Admin";
 
 import Login from "./components/Login/Login";
 import NotFound from "./components/NotFound/NotFound";
-import Orders from "./components/Orders/Orders";
+import Orders from "./components/Customer/Orders/Orders";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import Checkout from "./components/Checkout/Checkout";
+import Checkout from "./components/Customer/Checkout/Checkout";
 
 
 //app related

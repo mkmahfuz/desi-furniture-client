@@ -58,7 +58,7 @@ const Login = () => {
     return (
         <div>
             <div className='login-container'>
-                <h2>Desi Fruits login </h2>
+                <h2>Desi Furniture login </h2>
                 <div className='google-signIn'>
                     <p>-------- --------</p>
                     <p>--- Google Sign In ---</p>
