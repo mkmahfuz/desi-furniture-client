@@ -11,7 +11,7 @@ const Project = (props) => {
 
     return (
 
-        <Card className='trSingle'>
+        <Card className='trSingle1'>
             <Card.Img variant='top' src={imgurl} />
             <Card.Body>
                 <Card.Title>{title}</Card.Title>

@@ -12,13 +12,15 @@ const Services = () => {
             _id: 1,
             title: 'Rent',
             subtitle: 'Furniture Rental Service',
+            price: 100,
             description: 'We have huge collection of Vintage and Used Furniture, You can simply rent.',
             imgurl: img1,
         },
         {
             _id: 2,
             title: 'Repair',
-            subtitle: 'Onsight Repair Service',
+            subtitle: 'Onsite Repair Service',
+            price: 150,
             description: 'We have huge collection of Vintage and Used Furniture, You can buy or simply rent.',
             imgurl: img2,
         },
@@ -26,13 +28,14 @@ const Services = () => {
             _id: 3,
             title: 'Design',
             subtitle: 'Custom Design',
+            price: 200,
             description: 'We have huge collection of Vintage and Used Furniture, You can buy or simply rent.',
             imgurl: img3,
         },
 
     ];
     return (
-        <>
+        <div className="services-compo">
             <Container className='service-container'>
                 <Row>
                     <Col className='service-heading'>
@@ -51,7 +54,7 @@ const Services = () => {
                     </Col>
                 </Row>
             </Container>
-        </>
+        </div>
     );
 };
 

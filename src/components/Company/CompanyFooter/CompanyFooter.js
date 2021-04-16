@@ -24,10 +24,10 @@ const CompanyFooter = () => {
                 <p>Desi Furnitures</p>
                 <p>123 East Sher #11</p>
                 <p>Moon City, DHK BD</p>
-                <p>Open Hours M-F 10AM-5PM</p>
+                <p>Open M-F 10AM-5PM</p>
             </div>
             <div className="footer-social">
-                <p></p>
+                
             <FontAwesomeIcon icon={faGoogle} style={{ marginRight: '1rem',color:'blue' }} />
             <FontAwesomeIcon icon={faFacebook} style={{ marginRight: '1rem',color:'blue' }} />
             <FontAwesomeIcon icon={faTwitter} style={{ marginRight: '1rem',color:'orange' }} />

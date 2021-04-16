@@ -21,8 +21,8 @@ const Navigation = () => {
             <span style={{ marginRight: '1rem' }}>{loggedInUser.name || loggedInUser.email}</span>
             {
                 !loggedInUser.email ?
-                    <Link to='/login'><Button variant='warning'>LogIn</Button></Link> :
-                    <Button variant='warning' onClick={signOut}>LogOut</Button>
+                    <Link to='/login'><Button size='sm' variant='warning'>LogIn</Button></Link> :
+                    <Button size='sm' variant='warning' onClick={signOut}>LogOut</Button>
             }
 
             {console.log('loggedfrom:header', loggedInUser.email)}

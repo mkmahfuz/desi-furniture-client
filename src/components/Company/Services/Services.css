@@ -1,5 +1,13 @@
+.services-compo{
+    background-color: aliceblue;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
+}
 .service-container{
-    margin-top: 2rem;    
+    margin-top: 2rem;
+       
+   
 }
 .service-heading{
     text-align: center;
