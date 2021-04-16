@@ -1,27 +1,32 @@
 import React from 'react';
 import './Banner.css';
-import { Card, Button } from 'react-bootstrap';
+import {Button } from 'react-bootstrap';
+// import img from '../../../images/Banners/interior.jpg';
 
 const Banner = (props) => {
-    const {_id,title,subtitle,description,imgurl} = props.banner;
+    const { _id, title, subtitle, description, imgurl } = props.banner;
 
-    const handleClick = (id) => {
+
+    const handleBuy = (id) => {
+        console.log(id);
+    }
+    const handleRent = (id) => {
         console.log(id);
     }
 
     return (
-        <Card className='trSingle'>
-            <Card.Img variant='top' src='../../../images/Banners/chair-1.jpg' />
-            <Card.Body>
-                <Card.Title>{title}</Card.Title>
-                <Card.Subtitle>{subtitle}</Card.Subtitle>
-                <Card.Text>{description}</Card.Text>
-
-                <Card.Footer className="text-primary" id='card-footer'>
-                    <Button variant="primary" size="sm" onClick={() => handleClick(_id)}>Buy Now</Button>
-                </Card.Footer>
-            </Card.Body>
-        </Card>
+        <div className="top-banner">
+            <div className='top-banner-text'>
+                <p>{title}</p>
+                <h3>{subtitle}</h3>
+                <p>{description}</p>
+                <Button variant="primary" size="sm" onClick={() => handleBuy(_id)}>Buy Now</Button>
+                <Button variant="secondary" size="sm" onClick={() => handleRent(_id)}>Rent Now</Button>
+            </div>
+            <div className="top-banner-img">
+                <img src={imgurl} alt='top-banner img'></img>
+            </div>
+        </div>
     );
 };
 

@@ -1,5 +1,4 @@
-
-.top-banner {   
+.master-banner {   
     height: 30rem;
     width: 100%;    
     display: grid;
@@ -8,21 +7,22 @@
         
 }
 
-.top-banner-img{    
+.master-banner-img{    
     height: 30rem;
      grid-column: 2 / span 10;
      grid-row: 1 / span 2;
 
 }
 
-.top-banner-img img{
+.master-banner-img img{
     height: 100%;
     width: 100%;;
     object-fit: cover;
     opacity: 50%;
+    border-radius: 2rem;
     
 }
-.top-banner-text{
+.master-banner-text{
     grid-column: 5 / span 4;
     grid-row: 2;
     text-align: center;
