@@ -1,5 +1,6 @@
 import React from 'react';
-import Contact from '../Company/Contact/Contact';
+import CompanyFooter from '../Company/CompanyFooter/CompanyFooter';
+
 import Intro from '../Company/Intro/Intro';
 import Masters from '../Company/Masters/Masters';
 import Projects from '../Company/Projects/Projects';
@@ -14,7 +15,8 @@ const Home = () => {
             <Services></Services>
             <Testimonials></Testimonials>
             <Masters></Masters>
-            <Contact></Contact>
+            <CompanyFooter></CompanyFooter>
+            
         </div>
     );
 };

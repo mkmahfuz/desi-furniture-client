@@ -1,5 +1,5 @@
 .master-banner {   
-    height: 30rem;
+    height: 20rem;
     width: 100%;    
     display: grid;
     grid-template-columns: repeat(12,1fr);
@@ -8,7 +8,7 @@
 }
 
 .master-banner-img{    
-    height: 30rem;
+    height: 20rem;
      grid-column: 2 / span 10;
      grid-row: 1 / span 2;
 

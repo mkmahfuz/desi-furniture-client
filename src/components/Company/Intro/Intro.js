@@ -10,7 +10,7 @@ const Intro = () => {
             _id: 1,
             title: 'IN WOOD WE TRUST',
             subtitle: 'USED FURNITURES',
-            description: 'We have huge collection of Vintage and Used Furniture, You can buy or simply rent.',
+            description: 'We have huge collection of Vintage and Used Furniture, You can search and buy.',
             imgurl: img,
         },
         

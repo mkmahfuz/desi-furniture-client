@@ -14,7 +14,7 @@ const Service = (props) => {
             <Card.Title>{title}</Card.Title>
             <Card.Subtitle>{subtitle}</Card.Subtitle>
             <Card.Text>{description}</Card.Text>
-            <Button variant="primary" size="sm" onClick={() => handleClick(_id)}>Show Details</Button>
+            <Button variant="primary" size="sm" onClick={() => handleClick(_id)}>Book Now</Button>
         </Card.Body>
     </Card>
     );
