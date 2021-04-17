@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import './Login.css';
+import logo from '../../images/Logo/DESI-1.png';
 //firebase
 import firebase from "firebase/app";
 import "firebase/auth";
@@ -58,7 +59,9 @@ const Login = () => {
     return (
         <div>
             <div className='login-container'>
-                <h2>Desi Furniture login </h2>
+                <img src={logo} alt='logo' /><span className='logo-title'></span>
+                
+
                 <div className='google-signIn'>
                     <p>-------- --------</p>
                     <p>--- Google Sign In ---</p>
@@ -68,7 +71,7 @@ const Login = () => {
 
 
                 </div>
-               
+
             </div>
         </div>
     );

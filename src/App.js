@@ -12,6 +12,10 @@ import NotFound from "./components/NotFound/NotFound";
 import Orders from "./components/Customer/Orders/Orders";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import Checkout from "./components/Customer/Checkout/Checkout";
+import About from "./components/Company/About/About";
+import Services from "./components/Company/Services/Services";
+import Projects from "./components/Company/Projects/Projects";
+import Contact from "./components/Company/Contact/Contact";
 
 
 //app related
@@ -38,7 +42,19 @@ function App() {
               <Route path='/home'>
                 <Home></Home>
               </Route>
-             
+              <Route path='/about'>
+                <About></About>
+              </Route>
+              <Route path='/services'>
+                <Services></Services>
+              </Route>
+              <Route path='/projects'>
+                <Projects></Projects>
+              </Route>
+              <Route path='/contact'>
+                <Contact></Contact>
+              </Route>          
+              {/* private route */}
               <PrivateRoute path='/checkout'>
                 <Checkout></Checkout>
               </PrivateRoute>
