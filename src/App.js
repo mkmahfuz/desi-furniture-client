@@ -16,6 +16,8 @@ import About from "./components/Company/About/About";
 import Services from "./components/Company/Services/Services";
 import Projects from "./components/Company/Projects/Projects";
 import Contact from "./components/Company/Contact/Contact";
+import CustomerHome from "./components/Customer/CustomerHome/CustomerHome";
+import AddReview from "./components/Customer/AddReview/AddReview";
 
 
 //app related
@@ -55,12 +57,18 @@ function App() {
                 <Contact></Contact>
               </Route>          
               {/* private route */}
-              <PrivateRoute path='/checkout'>
+              <Route path='/customer'>
+                <CustomerHome></CustomerHome>
+              </Route>
+              <Route path='/checkout'>
                 <Checkout></Checkout>
-              </PrivateRoute>
-              <PrivateRoute path='/orders'>
+              </Route>
+              <Route path='/orders'>
                 <Orders></Orders>
-              </PrivateRoute>
+              </Route>
+              <Route path='/addreview'>
+                <AddReview></AddReview>
+              </Route>
               <PrivateRoute path='/admin'>
                 <Admin></Admin>
               </PrivateRoute>

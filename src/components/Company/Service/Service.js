@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card, Button } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+import { CheckoutContext } from '../../../App';
 import './Service.css';
 
 const Service = (props) => {
     const { _id, title, subtitle,price, description, imgurl } = props.service;
+    const history = useHistory();
+    const [checkoutService, setCheckoutService] = useContext(CheckoutContext);
+
     const handleClick = (id) => {
-        console.log(id);
+        setCheckoutService(id);
+        console.log(checkoutService);
+        const url = '/checkout';
+        history.push(url);
     }
 
     return (

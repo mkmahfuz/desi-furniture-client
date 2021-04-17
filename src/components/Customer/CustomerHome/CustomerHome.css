@@ -1,0 +1,28 @@
+.customer-home-container{
+  padding-top: 2rem;
+  background-color: aliceblue;
+  margin-bottom: 2rem;
+
+}
+.customer-nav{ 
+   text-align: center;
+    font-size: 1rem;
+    font-weight: 500;  
+}
+
+.customer-nav ul{
+    list-style: none;
+}
+.customer-nav li{
+   display: inline;
+   padding-right: 2rem;
+}
+.customer-nav a{
+    color: black;
+
+}
+
+.customer-nav a:link{
+    text-decoration: none;
+}
+
