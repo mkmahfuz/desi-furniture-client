@@ -1,0 +1,11 @@
+.payment-body{
+    display:grid;
+    grid-template-columns: 1fr 10fr 1fr;
+}
+.payment-left{
+    grid-column: span 4;
+}
+.payment-right{
+    grid-column: 2;
+    margin-bottom: 2rem;
+}

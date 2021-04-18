@@ -57,8 +57,8 @@ function App() {
                 <Contact></Contact>
               </Route>          
               {/* private route */}
-              <Route path='/customer'>
-                <CustomerHome></CustomerHome>
+              <Route path='/dashboard'>
+                <Orders></Orders>
               </Route>
               <Route path='/checkout'>
                 <Checkout></Checkout>
@@ -69,7 +69,10 @@ function App() {
               <Route path='/addreview'>
                 <AddReview></AddReview>
               </Route>
-              <PrivateRoute path='/admin'>
+              <Route path='/admin'>
+                <Admin></Admin>
+              </Route>
+              <PrivateRoute path='/admins'>
                 <Admin></Admin>
               </PrivateRoute>
 

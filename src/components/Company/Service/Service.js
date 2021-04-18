@@ -5,7 +5,8 @@ import { CheckoutContext } from '../../../App';
 import './Service.css';
 
 const Service = (props) => {
-    const { _id, title, subtitle,price, description, imgurl } = props.service;
+    const service = props.service;
+    const { _id, title, subtitle, price, description, imgurl } = service;
     const history = useHistory();
     const [checkoutService, setCheckoutService] = useContext(CheckoutContext);
 
@@ -18,15 +19,15 @@ const Service = (props) => {
 
     return (
         <Card className='srv-Single'>
-        <Card.Img variant='top' src={imgurl} />
-        <Card.Body>
-            <Card.Title>{subtitle}</Card.Title>
-            
-            <Card.Subtitle>Starting from : ${price}</Card.Subtitle>
-            <Card.Text>{description}</Card.Text>
-            <Button variant="primary" size="sm" onClick={() => handleClick(_id)}>Book Now</Button>
-        </Card.Body>
-    </Card>
+            <Card.Img variant='top' src={imgurl} />
+            <Card.Body>
+                <Card.Title>{subtitle}</Card.Title>
+
+                <Card.Subtitle>Starting from : ${price}</Card.Subtitle>
+                <Card.Text>{description}</Card.Text>
+                <Button variant="primary" size="sm" onClick={() => handleClick(service)}>Book Now</Button>
+            </Card.Body>
+        </Card>
     );
 };
 

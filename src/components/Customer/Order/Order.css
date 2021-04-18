@@ -1,0 +1,39 @@
+.order-container{    
+    border: 5px solid white;
+    border-radius: 1rem;
+    background-color: aliceblue;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    height:14rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+.order-image{
+    height: 4rem;
+}
+.order-image img{
+    border-radius: 50%;
+    height: 100%;    
+    object-fit: cover;
+}
+
+.order-price{
+    text-align: center;
+
+}
+.order-title{
+grid-column: span 2;
+padding-top: 1rem;
+
+}
+.order-description{
+    grid-column: span 3;
+
+}
+.order-status{
+    grid-row: 1;
+    grid-column: 3;
+    text-align: center;
+   
+}

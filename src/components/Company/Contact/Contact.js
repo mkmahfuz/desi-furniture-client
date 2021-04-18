@@ -4,6 +4,10 @@ import CompanyFooter from '../CompanyFooter/CompanyFooter';
 import './Contact.css';
 
 const Contact = () => {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log("message sent succesfull")
+    }
 
     return (
         <div className='contact-container'>
@@ -16,7 +20,7 @@ const Contact = () => {
                 </Row>
                 <Row>
                     <Col className='contact-form'>
-                        <Form>
+                        <Form onSubmit={handleSubmit}>
                             <Form.Row>
                                 <Form.Group as={Col} controlId="formGridAddress1">
                                     <Form.Label>Full Name</Form.Label>

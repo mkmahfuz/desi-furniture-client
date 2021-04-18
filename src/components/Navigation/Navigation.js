@@ -17,6 +17,7 @@ const Navigation = () => {
             <Link to='/services'>Services</Link>
             <Link to='/projects'>Projects</Link>
             <Link to='/contact'>Contact</Link>
+            <Link to='/dashboard'>Dashboard</Link>
             <Link to='/admin'>Admin</Link>
             <span style={{ marginRight: '1rem' }}>{loggedInUser.name || loggedInUser.email}</span>
             {
