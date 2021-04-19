@@ -1,0 +1,30 @@
+#admin-left{
+    /* background-color: rgb(141, 202, 221); */
+    min-height:40vh;
+    padding-left: 2rem;
+    padding-top: 2rem;
+}
+
+#admin-left h5{
+    margin-top: 1.5rem;
+}
+
+.border-around{
+    border-bottom:1px solid gray;
+}
+#col-left{
+    background-color: rgb(134, 221, 199);
+    /* background-color: aliceblue; */
+
+}
+@media only screen and (max-width:768px){
+    #admin-left{        
+        padding-left: 1rem;
+        padding-top: 1rem;
+        /* margin-top: 1rem; */
+    }
+    #col-left{
+       margin-top: 1rem;
+    }
+   
+}
