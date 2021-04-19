@@ -4,6 +4,7 @@
     padding-left: 2rem;
     padding-top: 2rem;
 }
+.pointer {cursor: pointer;}
 
 #admin-left h5{
     margin-top: 1.5rem;

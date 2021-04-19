@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { useForm } from "react-hook-form";
+import { useForm } from 'react-hook-form';
+
 import { useHistory } from 'react-router-dom';
 
 const AddService = () => {
@@ -9,24 +10,23 @@ const AddService = () => {
     const [info, setInfo] = useState(false);
     let history = useHistory();
 
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit,errors } = useForm();
     const onSubmit = data => {
-        const fruitData = {
+        const serviceData = {
             name: data.name,
             price: data.price,
             quantity: data.quantity,
             imgurl: imageURL
         };
         //console.log(data);
-        console.log(fruitData);
-        //post fruitdata to server to save to mongodb
-        //const url = 'http://localhost:5050/addFruit';
-        
-        const url = 'https://ancient-ocean-50478.herokuapp.com/addFruit';
+        console.log(serviceData);
+        //post servicedata to server to save to mongodb
+        const url = 'http://localhost:5050/addservice';
+        // const url = 'https://ancient-ocean-50478.herokuapp.com/addservice';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(fruitData)
+            body: JSON.stringify(serviceData)
         })
             .then(res => res.json())
             .then(data => {
@@ -63,33 +63,33 @@ const AddService = () => {
 
     return (
         <div>
-            <h2>Add Fruits </h2>
+        <h2>Add services </h2>
 
-            <Form onSubmit={handleSubmit(onSubmit)}>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Fruit's Name</Form.Label>
-                    <Form.Control type="text" name="name" defaultValue="fruit's name" ref={register} />
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Price</Form.Label>
-                    <Form.Control type="number" name="price" defaultValue="100" ref={register} />
-                </Form.Group>
-                <Form.Group controlId="formBasicEmail">
-                    <Form.Label>Quantity</Form.Label>
-                    <Form.Control type="number" name="quantity" defaultValue="1" ref={register} />
-                </Form.Group>
-                <Form.Group>
-                    <Form.File id="exampleFormControlFile1" name="image" label="Add Photo" onChange={(evnt) => handleImageUpload(evnt)}/>
-                </Form.Group>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>service's Name</Form.Label>
+                <Form.Control type="text" name="name" defaultValue="service's name" {...register('name')} />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Price</Form.Label>
+                <Form.Control type="number" name="price" defaultValue="100" {...register('price')} />
+            </Form.Group>
+            <Form.Group controlId="formBasicEmail">
+                <Form.Label>Quantity</Form.Label>
+                <Form.Control type="number" name="quantity" defaultValue="1" {...register('quantity')} />
+            </Form.Group>
+            <Form.Group>
+                <Form.File id="exampleFormControlFile1" name="image" label="Add Photo" onChange={(evnt) => handleImageUpload(evnt)}/>
+            </Form.Group>
 
-                <Button className='float-right' variant="primary" type="submit">Save</Button>
-            </Form>
-            <div>
-                {
-                    <p>{info && 'Fruit info added successfully'}</p>
-                }
-            </div>
+            <Button className='float-right' variant="primary" type="submit">Save</Button>
+        </Form>
+        <div>
+            {
+                <p>{info && 'service info added successfully'}</p>
+            }
         </div>
+    </div>
     );
 };
 
