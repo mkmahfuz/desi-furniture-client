@@ -1,14 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import './Navigation.css'
 const Navigation = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    const [adminUser, setAdminUser] = useState({});
+
+    useEffect(() => {
+        const url = 'http://localhost:5050/adminuser?email=' + loggedInUser.email;
+        // const url = 'https://ancient-ocean-50478.herokuapp.com/orders?email=' + loggedInUser.email;
+        console.log(url);
+        fetch(url)
+            .then(res => res.json())
+            .then(admin => {
+                console.log("admin",admin);
+                setAdminUser(admin[0]);
+            });
+    }, [loggedInUser]);
+
+
+    let history = useHistory();
+
     const signOut = () => {
         setLoggedInUser('');
+        setAdminUser('');
+        history.push('/home');
     };
+
+    console.log("adminemail:", adminUser)
+    console.log("usermail:", loggedInUser)
 
     return (
         <div className='navLink'>
@@ -17,8 +39,14 @@ const Navigation = () => {
             <Link to='/services'>Services</Link>
             <Link to='/projects'>Projects</Link>
             <Link to='/contact'>Contact</Link>
-            <Link to='/dashboard'>Dashboard</Link>
-            <Link to='/admin'>Admin</Link>
+            {
+               loggedInUser.email && <Link to='/dashboard'>Dashboard</Link>
+
+            }
+            {
+               adminUser &&  <Link to='/admin'>Admin</Link>
+            }
+
             <span style={{ marginRight: '1rem' }}>{loggedInUser.name || loggedInUser.email}</span>
             {
                 !loggedInUser.email ?

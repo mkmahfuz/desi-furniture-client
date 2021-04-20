@@ -20,6 +20,7 @@ const Login = () => {
 
     //usecontext to set logged in user info
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
+    
 
     //error and other info state
     const [customErrors, setCustomErrors] = useState({ error: '' }, { info: '' });
@@ -45,6 +46,7 @@ const Login = () => {
                 //setUser(signedInUser);
 
                 setLoggedInUser(signedInUser); //sent user data to context
+                //check and set 
                 history.replace(from); // reactrouter redirect loginpage function
 
                 console.log(displayName, photoURL, email)
@@ -60,7 +62,7 @@ const Login = () => {
         <div>
             <div className='login-container'>
                 <img src={logo} alt='logo' /><span className='logo-title'></span>
-                
+
 
                 <div className='google-signIn'>
                     <p>-------- --------</p>

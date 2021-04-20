@@ -1,20 +1,64 @@
-import React from 'react';
-import { Button, Col, Container, Form, Row } from 'react-bootstrap';
+import React, { useState,useEffect } from 'react';
+import { Button, Col,  Form,Table } from 'react-bootstrap';
+import { useForm } from 'react-hook-form';
 
 const MakeAdmin = () => {
-    const handleSubmit = (event) => {
-        event.preventDefault();
+    const [info, setInfo] = useState(false);
+    const [adminusers, setAdminUsers] = useState([]);
 
-        console.log(event.target.email.value);
+    // const handleSubmit1 = (event) => {
+    //     event.preventDefault();
+
+    //     console.log(event.target.email.value);
+    // };
+
+
+    const { register, handleSubmit} = useForm();
+    const onSubmit = data => {
+        const adminData = {
+            email: data.email
+                        
+        };
+       
+        //post admin user data to server to save to mongodb
+        const url = 'http://localhost:5050/addadmin';
+        // const url = 'https://ancient-ocean-50478.herokuapp.com/addservice';
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(adminData)
+        })
+            .then(res => res.json())
+            .then(data => {
+
+                
+                // history.push('/home');                
+                console.log("ddd:", data);
+                setInfo(data);
+            });
+
     };
+
+    useEffect(() => {
+        const url = 'http://localhost:5050/alladmins';
+        // const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                //console.log(data);
+                setAdminUsers(data);
+                setInfo(false);
+            });
+    }, [info]);
 
     return (
         <div>
-            <Form onSubmit={handleSubmit}>
+            <h2>Make Admin </h2>
+            <Form onSubmit={handleSubmit(onSubmit)}>
 
                 <Form.Group as={Col} controlId="formGridName">
                     <Form.Label>Email </Form.Label>
-                    <Form.Control type="email" name='email' defaultValue='yourname@gmail.com' />
+                    <Form.Control type="email" name='email' placeholder="yourname@gmail.com" {...register('email')}/>
                     <Form.Text>Only gmail</Form.Text>
                 </Form.Group>
 
@@ -25,6 +69,33 @@ const MakeAdmin = () => {
                 </Form.Group>
 
             </Form>
+
+            <div style={{ marginTop: '2rem' }}>
+
+                {
+                    <p>{info && 'Admin user added successfully'}</p>
+                }
+            </div>
+            <h2>Admin User Lists </h2>
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>SL.No</th>
+                        <th>Admin User Email</th>
+                        <th>Action</th>                        
+                    </tr>
+                </thead>
+                <tbody className='td-text-small'>
+                    {
+                        adminusers.map(adminuser => <tr key={adminuser._id}>
+                            <td></td>
+                            <td>{adminuser.email}</td>
+                            <td></td>
+                            
+                        </tr>)
+                    }
+                </tbody>
+            </Table>
         </div>
     );
 };

@@ -22,9 +22,9 @@ const Admin = () => {
     }
 
     return (
-        <Container>
+        <Container fluid>
             <Row style={{ marginTop: '1rem' ,marginBottom: '1rem'}}>
-                <Col sm={3} id="col-left">
+                <Col sm={2} id="col-left">
                     <div id="admin-left">
 
                         <h5 id="order" className='border-around pointer' onClick={(evnt) => showData(evnt)}><FontAwesomeIcon icon={faList} style={{ marginRight: '.5rem' }}></FontAwesomeIcon>Order List</h5>
@@ -34,7 +34,7 @@ const Admin = () => {
 
                     </div>
                 </Col>
-                <Col sm={9}>
+                <Col sm={10}>
                     {console.log(displayData === 'add')}
                     <div id="order-list" >
                         {displayData === 'order' && <OrderList></OrderList>}

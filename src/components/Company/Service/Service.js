@@ -10,7 +10,7 @@ const Service = (props) => {
     const springprops = useSpring({ transform: `rotateY(${flipped ? 180 : 0}deg)` }); // spring react animation properties
 
     const service = props.service;
-    const { _id, title, subtitle, price, description, imgurl } = service;
+    const { _id, name, price, description, imgurl } = service;
     const history = useHistory();
     const [checkoutService, setCheckoutService] = useContext(CheckoutContext);
 
@@ -30,11 +30,11 @@ const Service = (props) => {
                     <Card.Img variant='top' src={imgurl} />
                 </animated.div>
                 <Card.Body>
-                    <Card.Title>{subtitle}</Card.Title>
+                    <Card.Title>{name}</Card.Title>
 
                     <Card.Subtitle>Starting from : ${price}</Card.Subtitle>
                     <Card.Text>{description}</Card.Text>
-                    <Button variant="primary" size="sm" onClick={() => handleClick(service)}>Book Now</Button>
+                    <Button variant="primary" size="sm" onClick={() => handleClick(_id)}>Book Now</Button>
                 </Card.Body>
             </Card>
 

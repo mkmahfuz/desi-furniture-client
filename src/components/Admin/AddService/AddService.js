@@ -15,7 +15,7 @@ const AddService = () => {
         const serviceData = {
             name: data.name,
             price: data.price,
-            quantity: data.quantity,
+            description: data.description,
             imgurl: imageURL
         };
         //console.log(data);
@@ -32,7 +32,7 @@ const AddService = () => {
             .then(data => {
 
                 setInfo(data);
-                history.push('/home');
+                history.push('/services');
                 // <Redirect to = "/home"/>
                 console.log("ddd:", data);
             });
@@ -52,7 +52,7 @@ const AddService = () => {
         axios.post(imgbbURL, imageData)
             .then(function (response) {
                 //console.log(response);
-                //console.log(response.data.data.display_url); //will get the img url
+                // console.log(response.data.data.display_url); //will get the img url
                 setImageURL(response.data.data.display_url);
             })
             .catch(function (error) {
@@ -75,14 +75,14 @@ const AddService = () => {
                 <Form.Control type="number" name="price" defaultValue="100" {...register('price')} />
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
-                <Form.Label>Quantity</Form.Label>
-                <Form.Control type="number" name="quantity" defaultValue="1" {...register('quantity')} />
+                <Form.Label>Description</Form.Label>
+                <Form.Control type="text" name="description" defaultValue="service description" {...register('description')} />
             </Form.Group>
             <Form.Group>
                 <Form.File id="exampleFormControlFile1" name="image" label="Add Photo" onChange={(evnt) => handleImageUpload(evnt)}/>
             </Form.Group>
 
-            <Button className='float-right' variant="primary" type="submit">Save</Button>
+            <Button  variant="primary" type="submit">Save</Button>
         </Form>
         <div>
             {

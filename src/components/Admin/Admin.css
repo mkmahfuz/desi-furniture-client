@@ -1,7 +1,7 @@
 #admin-left{
     /* background-color: rgb(141, 202, 221); */
     min-height:40vh;
-    padding-left: 2rem;
+    padding-left: .75rem;
     padding-top: 2rem;
 }
 .pointer {cursor: pointer;}

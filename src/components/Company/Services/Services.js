@@ -1,5 +1,5 @@
-import React from 'react';
-import { CardColumns, Col, Container, Row } from 'react-bootstrap';
+import React, { useEffect,useState } from 'react';
+import { CardColumns, Col, Container, Row ,Spinner} from 'react-bootstrap';
 import Service from '../Service/Service';
 import './Services.css';
 import img1 from '../../../images/Services/rent.jpg';
@@ -7,7 +7,7 @@ import img2 from '../../../images/Services/repair.jpg';
 import img3 from '../../../images/Services/wood-design.jpg';
 
 const Services = () => {
-    const services = [
+    const servicesFake = [
         {
             _id: 1,
             title: 'Rent',
@@ -34,6 +34,21 @@ const Services = () => {
         },
 
     ];
+
+    const [services, setServices] = useState([]);
+    const [loading,setLoading] = useState(true);
+
+    useEffect(() => {
+        const url = 'http://localhost:5050/allServices';
+        //const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                //console.log(data);
+                setServices(data);
+                setLoading(false);
+            });
+    }, []);
     return (
         <div className="services-compo">
             <Container className='service-container'>
@@ -46,6 +61,7 @@ const Services = () => {
                 </Row>
                 <Row>
                     <Col>
+                    {loading && <div id='spin-loading'><Spinner animation="border" variant="primary" size="lg"/><p>Loading....</p></div>}
                         <CardColumns>
                             {
                                 services.map((service) => <Service key={service._id} service={service}></Service>)

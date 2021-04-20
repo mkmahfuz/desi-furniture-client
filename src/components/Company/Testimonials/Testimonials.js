@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { useEffect,useState } from 'react';
 import Testimonial2 from '../Testimonial/Testimonial2';
-import { CardColumns, Col, Container, Row } from 'react-bootstrap';
+import { CardColumns, Col, Container, Row,Spinner } from 'react-bootstrap';
 import './Testimonials.css';
 import img1 from '../../../images/Projects/project-1.jpg';
 import img2 from '../../../images/Projects/project-2.jpg';
 import img3 from '../../../images/Projects/project-3.jpg';
 
 const Testimonials = () => {
-    const reviews = [
+    const reviewsFake = [
         {
             _id: 1,
             title: 'Mike Vohn',
@@ -31,6 +31,22 @@ const Testimonials = () => {
         },
 
     ];
+
+    const [reviews, setReviews] = useState([]);
+    const [loading,setLoading] = useState(true);
+
+    useEffect(() => {
+        const url = 'http://localhost:5050/allReviews';
+        //const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                //console.log(data);
+                setReviews(data);
+                setLoading(false);
+            });
+    }, []);
+
     return (
         <>
             <Container className='testimonial-container'>
@@ -43,11 +59,12 @@ const Testimonials = () => {
                 </Row>
                 <Row>
                     <Col>
-                        <CardColumns>
+                    {loading && <div id='spin-loading'><Spinner animation="border" variant="primary" size="lg"/><p>Loading....</p></div>}
+                        <div className='card-flex'>
                             {
                                 reviews.map((review) => <Testimonial2 key={review._id} review={review}></Testimonial2>)
                             }
-                        </CardColumns>
+                        </div>
                     </Col>
                 </Row>
             </Container>

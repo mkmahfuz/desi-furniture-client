@@ -11,8 +11,8 @@ const Home = () => {
     return (
         <div className='home-container'>            
             <Intro></Intro>
-            <Projects></Projects>
             <Services></Services>
+            <Projects></Projects>            
             <Testimonials></Testimonials>
             <Masters></Masters>
             <CompanyFooter></CompanyFooter>

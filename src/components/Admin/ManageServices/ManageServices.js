@@ -2,28 +2,28 @@ import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 
 const ManageServices = () => {
-    const [fruits, setFruits] = useState([]);
+    const [services, setServices] = useState([]);
     const [info, setInfo] = useState(false);
 
 
     useEffect(() => {
-        //const url = 'http://localhost:5050/allFruits';
-        const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        const url = 'http://localhost:5050/allServices';
+        // const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
         fetch(url)
             .then(res => res.json())
             .then(data => {
                 //console.log(data);
-                setFruits(data);
+                setServices(data);
                 setInfo(false);
             });
     }, [info]);
 
 
 
-    const deleteFruit = (id) => {
+    const deleteService = (id) => {
         //console.log(id);
-        //const url = `http://localhost:5050/deleteFruit/${id}`;
-        const url = `https://ancient-ocean-50478.herokuapp.com/deleteFruit/${id}`;
+        const url = `http://localhost:5050/deleteService/${id}`;
+        // const url = `https://ancient-ocean-50478.herokuapp.com/deleteFruit/${id}`;
         fetch(url, {
             method: 'DELETE'
         })
@@ -39,23 +39,23 @@ const ManageServices = () => {
 
     return (
         <div>
-            <h2>Manage Fruits </h2>
+            <h2>Manage Services </h2>
             <Table striped bordered hover>
                 <thead>
                     <tr>
-                        <th>Fruit Name</th>
-                        <th>Quantity</th>
+                        <th>Service Name</th>
+                        <th>Description</th>
                         <th>Price</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        fruits.map(fruit => <tr key={fruit._id}>
-                            <td>{fruit.name}</td>
-                            <td>{fruit.quantity}</td>
-                            <td>{fruit.price}</td>
-                            <td><button onClick={() => deleteFruit(fruit._id)}>Delete</button></td>
+                        services.map(service => <tr key={service._id}>
+                            <td>{service.name}</td>
+                            <td>{service.description}</td>
+                            <td>{service.price}</td>
+                            <td><button onClick={() => deleteService(service._id)}>Delete</button></td>
                         </tr>)
                     }
                 </tbody>
@@ -65,7 +65,7 @@ const ManageServices = () => {
             <div style={{ marginTop: '2rem' }}>
 
                 {
-                    <p>{info && 'Deleted successfully'}</p>
+                    <p>{info && 'Service Deleted successfully'}</p>
                 }
             </div>
         </div>

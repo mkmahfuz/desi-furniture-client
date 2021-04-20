@@ -1,21 +1,22 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons'
-import './Testimonial.css';
+import './Testimonial2.css';
 
 const Testimonial2 = (props) => {
-    const { _id, title, subtitle, description, imgurl } = props.review;
+    const { _id, name,designation,company,review,cusimgurl } = props.review;
     return (
         <div className='review-container'>
             <div className='review-image'>
-            <img src={imgurl} alt="customer"/>
+            <img src={cusimgurl} alt="customer"/>
             </div>
             <div className='review-title'>
-                <h5>{title}</h5>
-                <h6>{subtitle}</h6>
+                <h5>{name}</h5>
+                <h6>{designation}</h6>
+                <p>{company}</p>
             </div>
             <div className='review-description'>
-                <p>{description}</p>
+                <p>{review}</p>
             </div>
             <div className='review-rating'>
             <FontAwesomeIcon icon={faStar} style={{ marginRight: '2rem',color:'orange' }} />

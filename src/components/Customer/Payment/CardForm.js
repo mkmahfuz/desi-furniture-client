@@ -1,10 +1,11 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useEffect} from 'react';
 import { Button, Col, Container, Form, Row } from 'react-bootstrap';
 import { CheckoutContext,UserContext } from '../../../App';
+import { useHistory } from 'react-router-dom';
 
 const CardForm = () => {
-    const [checkoutService] = useContext(CheckoutContext);
+    const [checkoutService,setCheckoutService] = useContext(CheckoutContext);
     const [loggedInUser] = useContext(UserContext);
     const stripe = useStripe();
     const elements = useElements();
@@ -40,8 +41,63 @@ const CardForm = () => {
             setCardSuccess(paymentMethod.id);
             setCardError(null);
             console.log('[PaymentMethod]', paymentMethod);
+            saveOrder(paymentMethod.id); // if pay success then save the order with pay id
+            setCheckoutService(null); // to prevent to resubmit
+
         }
     };
+// jkkjkkjk
+//from fruits checkout and saveorder
+
+    let history = useHistory();
+
+    const [services, setServices] = useState([]);
+    const { _id, name,price} = { ...services };
+
+    useEffect(() => {
+        const id = checkoutService;
+        const url = `http://localhost:5050/service/${id}`;
+        // const url = `https://ancient-ocean-50478.herokuapp.com/fruit/${id}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                setServices(data);
+            });
+    }, [checkoutService]);
+
+
+    const saveOrder = (id) => {
+        const {name,price,description,imgurl}= services;
+        const orderData = {name,price,description,imgurl};
+        const orderDate = new Date();
+        orderData.email = loggedInUser.email;
+        orderData.user = loggedInUser.name;
+        orderData.date = orderDate;
+        orderData.payId = id;
+        orderData.status = 'pending';
+        console.log(orderData);
+
+        //post orderData to server to save to mongodb
+        const url = 'http://localhost:5050/addOrder';
+        // const url = 'https://ancient-ocean-50478.herokuapp.com/addOrder';
+        fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(orderData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                data && history.push('/orders')
+                //if data positive then push to order page
+                //history.push('/orders');
+
+            });
+    };
+
+
+// llllllllkjkkj
 
     return (
 
@@ -60,7 +116,7 @@ const CardForm = () => {
 
                 <Form.Group as={Col} controlId="formGridService">
                     <Form.Label>Service Name</Form.Label>
-                    <Form.Control type="text" readOnly placeholder={checkoutService.subtitle} />
+                    <Form.Control type="text" readOnly placeholder={name} />
                 </Form.Group>
 
                 <Form.Group as={Col} controlId="formBasicCheckbox">
@@ -76,7 +132,7 @@ const CardForm = () => {
 
                 </Form.Group >
                 <Form.Group as={Col} controlId="formBasicPrice">
-                    <Form.Label style={{paddingRight:'2rem'}}>The cost of this service is ${checkoutService.price} </Form.Label>
+                    <Form.Label style={{paddingRight:'2rem'}}>The cost of this service is ${price} </Form.Label>
                     <Button variant="primary" type="submit" disabled={!stripe}>Pay Now</Button>                   
                 </Form.Group>
 

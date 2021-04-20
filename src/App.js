@@ -16,78 +16,82 @@ import About from "./components/Company/About/About";
 import Services from "./components/Company/Services/Services";
 import Projects from "./components/Company/Projects/Projects";
 import Contact from "./components/Company/Contact/Contact";
-import CustomerHome from "./components/Customer/CustomerHome/CustomerHome";
+
 import AddReview from "./components/Customer/AddReview/AddReview";
 
 
 //app related
 export const UserContext = createContext();
+export const AdminContext = createContext();
 export const CheckoutContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [checkoutService, setCheckoutService] = useState('');
+  const [adminUser, setAdminUser] = useState({});
+  const [checkoutService, setCheckoutService] = useState(null);
 
 
   return (
     <>
       <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-        <CheckoutContext.Provider value={[checkoutService, setCheckoutService]}>
+        <AdminContext.Provider value={[adminUser, setAdminUser]}>
+          <CheckoutContext.Provider value={[checkoutService, setCheckoutService]}>
 
-          <Router>
-            <Header user={loggedInUser}></Header>
-            <Switch>
+            <Router>
+              <Header user={loggedInUser}></Header>
+              <Switch>
 
-              <Route exact path='/'>
-                <Home></Home>
-              </Route>
-              <Route path='/home'>
-                <Home></Home>
-              </Route>
-              <Route path='/about'>
-                <About></About>
-              </Route>
-              <Route path='/services'>
-                <Services></Services>
-              </Route>
-              <Route path='/projects'>
-                <Projects></Projects>
-              </Route>
-              <Route path='/contact'>
-                <Contact></Contact>
-              </Route>          
-              {/* private route */}
-              <Route path='/dashboard'>
-                <Orders></Orders>
-              </Route>
-              <Route path='/checkout'>
-                <Checkout></Checkout>
-              </Route>
-              <Route path='/orders'>
-                <Orders></Orders>
-              </Route>
-              <Route path='/addreview'>
-                <AddReview></AddReview>
-              </Route>
-              <Route path='/admin'>
-                <Admin></Admin>
-              </Route>
-              <PrivateRoute path='/admins'>
-                <Admin></Admin>
-              </PrivateRoute>
+                <Route exact path='/'>
+                  <Home></Home>
+                </Route>
+                <Route path='/home'>
+                  <Home></Home>
+                </Route>
+                <Route path='/about'>
+                  <About></About>
+                </Route>
+                <Route path='/services'>
+                  <Services></Services>
+                </Route>
+                <Route path='/projects'>
+                  <Projects></Projects>
+                </Route>
+                <Route path='/contact'>
+                  <Contact></Contact>
+                </Route>
+                {/* private route */}
+                <Route path='/dashboard'>
+                  <Orders></Orders>
+                </Route>
+                <Route path='/checkout'>
+                  <Checkout></Checkout>
+                </Route>
+                <Route path='/orders'>
+                  <Orders></Orders>
+                </Route>
+                <Route path='/addreview'>
+                  <AddReview></AddReview>
+                </Route>
+                <Route path='/admin'>
+                  <Admin></Admin>
+                </Route>
+                <PrivateRoute path='/admins'>
+                  <Admin></Admin>
+                </PrivateRoute>
 
-              <Route path='/login'>
-                <Login></Login>
-              </Route>
-              <Route exact path='*'>
-                <NotFound></NotFound>
-              </Route>
+                <Route path='/login'>
+                  <Login></Login>
+                </Route>
+                <Route exact path='*'>
+                  <NotFound></NotFound>
+                </Route>
 
-            </Switch>
-            <Footer></Footer>
-          </Router>
+              </Switch>
+              <Footer></Footer>
+            </Router>
 
-        </CheckoutContext.Provider>
+          </CheckoutContext.Provider>
+        </AdminContext.Provider>
       </UserContext.Provider>
     </>
 

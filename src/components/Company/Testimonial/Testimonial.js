@@ -5,15 +5,15 @@ import { faStar } from '@fortawesome/free-solid-svg-icons'
 
 
 const Testimonial = (props) => {
-    const { _id, title, subtitle, description, imgurl } = props.review;
+    const { _id, name,designation,company,review,cusimgurl } = props.review;
    
     return (
-        <Card className='trSingle'>
-        <Card.Img variant='top' src={imgurl} />
+        <Card className='srv-Single'>
+        <Card.Img variant='top' src={cusimgurl} />
         <Card.Body>
-            <Card.Title>{title}</Card.Title>
-            <Card.Subtitle>{subtitle}</Card.Subtitle>
-            <Card.Text>{description}</Card.Text>
+            <Card.Title>{name}</Card.Title>
+            <Card.Subtitle>{designation}</Card.Subtitle>
+            <Card.Text><p>{company}</p>{review}</Card.Text>
             <FontAwesomeIcon icon={faStar} style={{ marginRight: '2rem',color:'orange' }} />
             <FontAwesomeIcon icon={faStar} style={{ marginRight: '2rem',color:'orange' }} />
             <FontAwesomeIcon icon={faStar} style={{ marginRight: '2rem',color:'orange' }} />
