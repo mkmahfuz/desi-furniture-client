@@ -2,11 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useContext } from 'react';
 import { Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
-import { UserContext } from '../../App';
+import { UserContext,AdminContext } from '../../App';
 import './Navigation.css'
 const Navigation = () => {
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
-    const [adminUser, setAdminUser] = useState({});
+    const [adminUser, setAdminUser] = useContext(AdminContext);
+    //const [adminUser, setAdminUser] = useState({});
 
     useEffect(() => {
         const url = 'http://localhost:5050/adminuser?email=' + loggedInUser.email;

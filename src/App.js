@@ -18,6 +18,7 @@ import Projects from "./components/Company/Projects/Projects";
 import Contact from "./components/Company/Contact/Contact";
 
 import AddReview from "./components/Customer/AddReview/AddReview";
+import PrivateRouteAdmin from "./components/PrivateRouteAdmin/PrivateRouteAdmin";
 
 
 //app related
@@ -60,21 +61,21 @@ function App() {
                   <Contact></Contact>
                 </Route>
                 {/* private route */}
-                <Route path='/dashboard'>
+                <PrivateRoute path='/dashboard'>
                   <Orders></Orders>
-                </Route>
-                <Route path='/checkout'>
+                </PrivateRoute>
+                <PrivateRoute path='/checkout'>
                   <Checkout></Checkout>
-                </Route>
-                <Route path='/orders'>
+                </PrivateRoute>
+                <PrivateRoute path='/orders'>
                   <Orders></Orders>
-                </Route>
-                <Route path='/addreview'>
+                </PrivateRoute>
+                <PrivateRoute path='/addreview'>
                   <AddReview></AddReview>
-                </Route>
-                <Route path='/admin'>
+                </PrivateRoute>
+                <PrivateRouteAdmin path='/admin'>
                   <Admin></Admin>
-                </Route>
+                </PrivateRouteAdmin>
                 <PrivateRoute path='/admins'>
                   <Admin></Admin>
                 </PrivateRoute>
