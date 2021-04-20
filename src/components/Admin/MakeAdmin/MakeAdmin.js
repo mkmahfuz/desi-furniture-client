@@ -21,8 +21,8 @@ const MakeAdmin = () => {
         };
        
         //post admin user data to server to save to mongodb
-        const url = 'http://localhost:5050/addadmin';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/addservice';
+        
+        const url = 'https://immense-garden-35214.herokuapp.com/addservice';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -40,8 +40,8 @@ const MakeAdmin = () => {
     };
 
     useEffect(() => {
-        const url = 'http://localhost:5050/alladmins';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        const url = 'https://immense-garden-35214.herokuapp.com/alladmins';
+        
         fetch(url)
             .then(res => res.json())
             .then(data => {

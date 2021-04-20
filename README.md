@@ -57,4 +57,4 @@ Github Repository : [https://github.com/]
  
 ## Live Link
 
-  Client side Host at firebase hosting: [https://desi-fruits.web.app/]
+  Client side Host at firebase hosting: [https://desi-furniture.web.app/]

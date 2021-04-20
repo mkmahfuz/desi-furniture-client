@@ -21,8 +21,8 @@ const AddService = () => {
         //console.log(data);
         console.log(serviceData);
         //post servicedata to server to save to mongodb
-        const url = 'http://localhost:5050/addservice';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/addservice';
+        
+        const url = 'https://immense-garden-35214.herokuapp.com/addservice';
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

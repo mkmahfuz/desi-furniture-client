@@ -10,8 +10,8 @@ const Navigation = () => {
     //const [adminUser, setAdminUser] = useState({});
 
     useEffect(() => {
-        const url = 'http://localhost:5050/adminuser?email=' + loggedInUser.email;
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/orders?email=' + loggedInUser.email;
+        const url = 'https://immense-garden-35214.herokuapp.com/adminuser?email=' + loggedInUser.email;
+        
         console.log(url);
         fetch(url)
             .then(res => res.json())

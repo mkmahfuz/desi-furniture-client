@@ -23,8 +23,8 @@ const AddReview = () => {
         //console.log(data);
         console.log(reviewData);
         //post servicedata to server to save to mongodb
-        const url = 'http://localhost:5050/addreview';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/addservice';
+        const url = 'http://https://immense-garden-35214.herokuapp.com/addreview';
+       
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

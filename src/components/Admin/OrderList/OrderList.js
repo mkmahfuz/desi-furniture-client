@@ -11,8 +11,8 @@ const OrderList = () => {
    
 
     useEffect(() => {
-        const url = 'http://localhost:5050/allorders';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/orders?email=' + loggedInUser.email;
+        const url = 'https://immense-garden-35214.herokuapp.com/allorders';
+        
         console.log(url);
         fetch(url)
             .then(res => res.json())
@@ -27,8 +27,8 @@ const OrderList = () => {
         const status = event.target.name;
         const order = {status}
         //console.log(id);
-        const url = `http://localhost:5050/updateOrder/${id}`;
-        // const url = `https://ancient-ocean-50478.herokuapp.com/deleteFruit/${id}`;
+        const url = `https://immense-garden-35214.herokuapp.com/updateOrder/${id}`;
+        
         fetch(url, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },

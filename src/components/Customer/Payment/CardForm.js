@@ -47,7 +47,7 @@ const CardForm = () => {
         }
     };
 // jkkjkkjk
-//from fruits checkout and saveorder
+//from service checkout and saveorder
 
     let history = useHistory();
 
@@ -56,8 +56,8 @@ const CardForm = () => {
 
     useEffect(() => {
         const id = checkoutService;
-        const url = `http://localhost:5050/service/${id}`;
-        // const url = `https://ancient-ocean-50478.herokuapp.com/fruit/${id}`;
+        const url = `https://immense-garden-35214.herokuapp.com/service/${id}`;
+        
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -79,8 +79,8 @@ const CardForm = () => {
         console.log(orderData);
 
         //post orderData to server to save to mongodb
-        const url = 'http://localhost:5050/addOrder';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/addOrder';
+        const url = 'https://immense-garden-35214.herokuapp.com/addOrder';
+        
         fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

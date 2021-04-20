@@ -39,8 +39,8 @@ const Services = () => {
     const [loading,setLoading] = useState(true);
 
     useEffect(() => {
-        const url = 'http://localhost:5050/allServices';
-        //const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        const url = 'https://immense-garden-35214.herokuapp.com/allServices';
+        
         fetch(url)
             .then(res => res.json())
             .then(data => {

@@ -7,8 +7,8 @@ const ManageServices = () => {
 
 
     useEffect(() => {
-        const url = 'http://localhost:5050/allServices';
-        // const url = 'https://ancient-ocean-50478.herokuapp.com/allFruits';
+        const url = 'https://immense-garden-35214.herokuapp.com/allServices';
+        
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -22,8 +22,8 @@ const ManageServices = () => {
 
     const deleteService = (id) => {
         //console.log(id);
-        const url = `http://localhost:5050/deleteService/${id}`;
-        // const url = `https://ancient-ocean-50478.herokuapp.com/deleteFruit/${id}`;
+        const url = `https://immense-garden-35214.herokuapp.com/deleteService/${id}`;
+        
         fetch(url, {
             method: 'DELETE'
         })
